@@ -5,6 +5,7 @@ import com.kiran.student.api.ServiceBuilder
 import com.kiran.student.api.StudentAPI
 import com.kiran.student.entity.Student
 import com.kiran.student.response.AddStudentResponse
+import com.kiran.student.response.DeleteStudentResponse
 import com.kiran.student.response.GetAllStudentResponse
 import com.kiran.student.ui.AddStudentActivity
 
@@ -25,6 +26,22 @@ class StudentRepository:
         return apiRequest {
             studentAPI.getAllStudents(
                 ServiceBuilder.token!!
+            )
+        }
+    }
+    //Delete Student
+    suspend fun deleteStudent(id :String): DeleteStudentResponse{
+        return apiRequest {
+            studentAPI.deleteStudent(
+                ServiceBuilder.token!!,id
+            )
+        }
+    }
+    //Update Student
+    suspend fun updateStudent(id :String,student : Student): DeleteStudentResponse{
+        return apiRequest {
+            studentAPI.updateStudent(
+                ServiceBuilder.token!!, id, student
             )
         }
     }

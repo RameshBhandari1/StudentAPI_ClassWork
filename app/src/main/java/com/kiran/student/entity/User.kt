@@ -5,5 +5,5 @@ data class User(
     val fname : String? = null,
     val lname : String? = null,
     val username : String? = null,
-    val password : String? = null,
+    val password : String? = null
 )

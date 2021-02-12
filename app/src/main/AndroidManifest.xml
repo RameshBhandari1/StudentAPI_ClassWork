@@ -18,12 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentAPI"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.ViewStudentActivity"></activity>
+        <activity android:name=".ui.UpdateStudentActivity"></activity>
+        <activity android:name=".ui.ViewStudentActivity" />
         <activity android:name=".ui.AddStudentActivity" />
         <activity android:name=".ui.DashboardActivity" />
         <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.LoginActivity" >
-        </activity>
+        <activity android:name=".ui.LoginActivity"></activity>
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
