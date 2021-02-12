@@ -40,6 +40,15 @@ class UpdateStudentActivity : AppCompatActivity(), View.OnClickListener {
             etFullName.setText(intent.fullname)
             etAge.setText(intent.age.toString())
             etAddress.setText(intent.address)
+            if (intent.gender == "Male"){
+                rdoMale.isChecked = true
+            }
+            else if(intent.gender == "Female"){
+                rdoFemale.isChecked = true
+            }
+            else{
+                rdoOthers.isChecked = true
+            }
         }
 
         btnUpdate.setOnClickListener(this)
