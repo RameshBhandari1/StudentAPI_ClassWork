@@ -35,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
         btnLogin = findViewById(R.id.btnLogin)
@@ -120,7 +121,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
     fun loginSharedPref() {
         val username = etUsername.text.toString()

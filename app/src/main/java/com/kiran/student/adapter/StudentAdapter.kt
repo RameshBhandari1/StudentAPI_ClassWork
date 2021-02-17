@@ -10,7 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.kiran.student.R
+import com.kiran.student.api.ServiceBuilder
 import com.kiran.student.entity.Student
 import com.kiran.student.repository.StudentRepository
 import com.kiran.student.ui.UpdateStudentActivity
@@ -30,6 +32,7 @@ class StudentAdapter(
             val tvage : TextView
             val tvaddress : TextView
             val tvgender : TextView
+            val image : ImageView
             val delete : ImageView
             val update : ImageView
             init {
@@ -37,6 +40,7 @@ class StudentAdapter(
                 tvage= view.findViewById(R.id.tvage)
                 tvaddress= view.findViewById(R.id.tvaddress)
                 tvgender= view.findViewById(R.id.tvgender)
+                image = view.findViewById(R.id.stdimg)
                 delete = view.findViewById(R.id.delete)
                 update = view.findViewById(R.id.update)
             }
@@ -57,6 +61,13 @@ class StudentAdapter(
         holder.tvage.text = stdlst.age.toString()
         holder.tvaddress.text = stdlst.address
         holder.tvgender.text = stdlst.gender
+        val imagePath = ServiceBuilder.loadImagePath() + stdlst.photo
+        if (!stdlst.photo.equals("no-photo.jpg")) {
+            Glide.with(context)
+                .load(imagePath)
+                .fitCenter()
+                .into(holder.image)
+        }
         holder.update.setOnClickListener{
             val intent = Intent(context, UpdateStudentActivity::class.java)
             intent.putExtra("student", stdlst)

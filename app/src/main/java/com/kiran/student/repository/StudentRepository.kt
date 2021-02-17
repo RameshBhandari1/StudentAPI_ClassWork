@@ -7,7 +7,9 @@ import com.kiran.student.entity.Student
 import com.kiran.student.response.AddStudentResponse
 import com.kiran.student.response.DeleteStudentResponse
 import com.kiran.student.response.GetAllStudentResponse
+import com.kiran.student.response.ImageResponse
 import com.kiran.student.ui.AddStudentActivity
+import okhttp3.MultipartBody
 
 class StudentRepository:
     MyApiRequest() {
@@ -45,4 +47,14 @@ class StudentRepository:
             )
         }
     }
+    //upload image
+    suspend fun uploadImage(id: String, body: MultipartBody.Part)
+            : ImageResponse {
+        return apiRequest {
+            studentAPI.uploadImage(
+                ServiceBuilder.token!!, id, body
+            )
+        }
+    }
+
     }
